@@ -1,24 +1,22 @@
-# Project name here
-> Summary description here.
+# Artemis API
+> This is a basic python wrapper for the Artemis API.
 
 
 This file will become your README and also the index of your documentation.
 
 ## Install
 
-`pip install your_project_name`
+`pip install artemis_api_python`
 
 ## How to use
 
-Fill me in please! Don't forget code examples:
-
 ```python
-1+1
+say_hello("Artemis")
 ```
 
 
 
 
-    2
+    'Hello Artemis!'
 
 
