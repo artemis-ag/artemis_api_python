@@ -6,8 +6,8 @@ index = {"say_hello": "00_core.ipynb"}
 
 modules = ["core.py"]
 
-doc_url = "https://hassoun.github.io/artemis_api_python/"
+doc_url = "https://Vincent.github.io/artemis_api_python/"
 
-git_url = "https://github.com/hassoun/artemis_api_python/tree/main/"
+git_url = "https://github.com/Vincent/artemis_api_python/tree/main/"
 
 def custom_doc_links(name): return None
