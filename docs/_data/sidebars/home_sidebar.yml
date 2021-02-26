@@ -10,7 +10,7 @@ entries:
       title: Overview
       url: /
     - output: web,pdf
-      title: Artemis API
+      title: API Client
       url: core.html
     output: web
     title: artemis_api_python

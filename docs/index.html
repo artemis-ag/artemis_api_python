@@ -55,6 +55,19 @@ nb_path: "index.ipynb"
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You'll first need to create a client and authenticate to the API using OAuth2 and authentication code:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Using-a-generated-authentication-code-to-retrieve-a-token:">Using a generated authentication code to retrieve a token:<a class="anchor-link" href="#Using-a-generated-authentication-code-to-retrieve-a-token:"> </a></h3>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -62,26 +75,33 @@ nb_path: "index.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;Artemis&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">auth_code</span><span class="o">=</span><span class="s2">&quot;0LOuiqULGUyEiZ_u7a9D7eUxYakwGHaYOUl3KvUtC14&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;Hello Artemis!&#39;</pre>
 </div>
+    {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="By-refreshing-a-token-manually">By refreshing a token manually<a class="anchor-link" href="#By-refreshing-a-token-manually"> </a></h3>
 </div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client_refresh</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">token</span><span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
