@@ -45,7 +45,7 @@ You'll then need to set the following environment variables using the previously
 Once the authorization code has been generated, for the first authentication, you can pass the authorization code when creating an `APIClient` instance. This will generate a token that will contain an `access_token`
 
 ```python
-client = APIClient(auth_code="r9bmxadR-Oc-VZ7OG6Frs46-3h40WI0fI5_dtDfGsyA")
+client = APIClient(auth_code="2U9Zo6ifXItIgGrjHB7O45Fjgg-GGBzxwtnf4-MP43E")
 ```
 
 The generated token should have the following format:
@@ -81,6 +81,114 @@ The token information should then be updated:
 ```python
 sensors = Sensor(client_refresh)
 ```
+
+```python
+response = sensors.get_all(1574)
+```
+
+```python
+response.content
+```
+
+
+
+
+    b'{"data":[{"id":"5637","type":"sensors","attributes":{"id":5637,"name":"vincent_test","facility_id":1574,"model":"priva","created_at":"2021-03-01T19:44:58.558Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"vincent-test"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}}],"jsonapi":{"version":"1.0"}}'
+
+
+
+```python
+response = sensors.post(1574, 'vincent_test_2', 'priva')
+```
+
+    {'facility_id': 1574, '_jsonapi': {'data': {'type': 'sensors', 'attributes': {'name': 'vincent_test_2', 'model': 'priva'}}}}
+
+
+```python
+response.content
+```
+
+
+
+
+    b'{"data":{"id":"5638","type":"sensors","attributes":{"id":5638,"name":"vincent_test_2","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:27:33.274Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"vincent-test-2"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}},"jsonapi":{"version":"1.0"}}'
+
+
+
+```python
+response = sensors.get_all(1574)
+```
+
+```python
+response.content
+```
+
+
+
+
+    b'{"data":[{"id":"5638","type":"sensors","attributes":{"id":5638,"name":"vincent_test_2","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:27:33.274Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"vincent-test-2"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}},{"id":"5637","type":"sensors","attributes":{"id":5637,"name":"vincent_test","facility_id":1574,"model":"priva","created_at":"2021-03-01T19:44:58.558Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"vincent-test"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}}],"jsonapi":{"version":"1.0"}}'
+
+
+
+```python
+response = sensors.get(facility_id=1574, sensor_id=5637)
+```
+
+```python
+response.content
+```
+
+
+
+
+    b'{"data":{"id":"5637","type":"sensors","attributes":{"id":5637,"name":"vincent_test","facility_id":1574,"model":"priva","created_at":"2021-03-01T19:44:58.558Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"vincent-test"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}},"jsonapi":{"version":"1.0"}}'
+
+
+
+```python
+response = sensors.delete(facility_id=1574, sensor_id=5637)
+```
+
+```python
+response.content
+```
+
+
+
+
+    b'{"data":{"id":"5637","type":"sensors","attributes":{"id":5637,"name":"vincent_test","facility_id":1574,"model":"priva","created_at":"2021-03-01T19:44:58.558Z","visible":true,"status":"removed","device_id":null,"string":null,"slug":"vincent-test"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}},"jsonapi":{"version":"1.0"}}'
+
+
+
+```python
+response = sensors.get_all(1574)
+```
+
+```python
+response.content
+```
+
+
+
+
+    b'{"data":[{"id":"5638","type":"sensors","attributes":{"id":5638,"name":"vincent_test_2","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:27:33.274Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"vincent-test-2"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}}],"jsonapi":{"version":"1.0"}}'
+
+
+
+```python
+response = sensors.delete(facility_id=1574, sensor_id=5638)
+```
+
+```python
+response.content
+```
+
+
+
+
+    b'{"data":{"id":"5638","type":"sensors","attributes":{"id":5638,"name":"vincent_test_2","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:27:33.274Z","visible":true,"status":"removed","device_id":null,"string":null,"slug":"vincent-test-2"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}},"jsonapi":{"version":"1.0"}}'
+
+
 
 ```python
 response = sensors.get_all(1574)

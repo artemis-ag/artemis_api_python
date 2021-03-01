@@ -6,6 +6,7 @@ __all__ = ['Sensor']
 import os
 from requests_oauthlib import OAuth2Session
 from dotenv import load_dotenv
+import json
 
 # Cell
 load_dotenv(dotenv_path='/Users/vincent/Documents/envvars/cred.env')
@@ -22,3 +23,29 @@ class Sensor:
     def get(self, facility_id, sensor_id):
         "Retrieves a specific sensor for a specific facility"
         return self.client.get(f'/facilities/{facility_id}/sensors/{sensor_id}')
+
+    def post(self, facility_id, sensor_name, sensor_model):
+        "Creates a new sensor for a specific facility"
+        attributes = {}
+        data = {}
+        body = {}
+        attributes['name'] = sensor_name
+        attributes['model'] = sensor_model
+        data['type'] = "sensors"
+        data['attributes'] = attributes
+        body['facility_id'] = facility_id
+        body['_jsonapi'] = {}
+        body['_jsonapi']['data'] = data
+        print(body)
+#         body = { "facility_id": facility_id,
+#                  "_jsonapi": {
+#                      "data": {
+#                         "type": "sensors",
+#                         "attributes": {
+#                          "name": sensor_name,
+#                          "model": sensor_model}}}}
+        return self.client.post(f'/facilities/{facility_id}/sensors', json.dumps(body))
+
+    def delete(self, facility_id, sensor_id):
+        "Deletes a specific sensor for a specific facility"
+        return self.client.delete(f'/facilities/{facility_id}/sensors/{sensor_id}')

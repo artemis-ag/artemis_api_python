@@ -50,12 +50,15 @@ class APIClient:
 
     def get(self, url):
         "Performs a GET request for the url"
-        return self.oauth_client.get(self.set_url(url))
+        headers = {"Content-Type": "application/json"}
+        return self.oauth_client.get(self.set_url(url), headers=headers)
 
-    def post(self):
-        "Performs a POST request for the url"
-        return "hello"
+    def post(self, url, data):
+        "Performs a POST request for the url and parameters"
+        headers = {"Content-Type": "application/json"}
+        return self.oauth_client.post(self.set_url(url), data=data, headers=headers)
 
-    def delete(self):
+    def delete(self, url):
         "Performs a DELETE request for the url"
-        return "hello"
+        headers = {"Content-Type": "application/json"}
+        return self.oauth_client.delete(self.set_url(url), headers=headers)
