@@ -6,8 +6,8 @@ title: Artemis API
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "This is a basic python wrapper for the Artemis API."
-description: "This is a basic python wrapper for the Artemis API."
+summary: "This is a basic python wrapper implementation for the Artemis API."
+description: "This is a basic python wrapper implementation for the Artemis API."
 nb_path: "index.ipynb"
 ---
 <!--
@@ -31,13 +31,6 @@ nb_path: "index.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This file will become your README and also the index of your documentation.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Install">Install<a class="anchor-link" href="#Install"> </a></h2>
 </div>
 </div>
@@ -57,14 +50,104 @@ nb_path: "index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You'll first need to create a client and authenticate to the API using OAuth2 and authentication code:</p>
+<p>You'll need to use OAuth 2.0 and the <a href="https://auth0.com/docs/flows/authorization-code-flow">Authorization Code Flow</a> to authenticate and interact with the Artemis Ag API</p>
+<p>Additional details regarding the Artemis API is also available on the <a href="https://developer.artemisag.com/">Artemis developer website</a></p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Using-a-generated-authentication-code-to-retrieve-a-token:">Using a generated authentication code to retrieve a token:<a class="anchor-link" href="#Using-a-generated-authentication-code-to-retrieve-a-token:"> </a></h3>
+<h3 id="Create-an-app-and-generate-an-authorization-code">Create an app and generate an authorization code<a class="anchor-link" href="#Create-an-app-and-generate-an-authorization-code"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You'll first need to create an application through the Artemis portal then generate an authorization code.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One of your Artemis users (which you'll be using to interact with the API) will need access to the API.
+If you’re not flagged as a developer account and you need to be, contact your Artemis representative or email <a href="mailto:jdayton@artemisag.com">jdayton@artemisag.com</a> and we’ll help you get set up.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then head to <code>Settings &gt; API &gt; OAuth 2.0</code> section and create an application:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/artemis_api_python/docs/images/create_application.png" alt="&#39;create_application.png&#39;"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Set the <code>Name</code> of the application, the <code>Redirect URI</code> as needed.
+If you'd like to access your authorization code directly, you can add to the redirect URIs <code>urn:ietf:wg:oauth:2.0:oob</code> as an additional callback url to your OAuth application. Then press <code>Submit</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A new Application should now be created. The associated <code>Application UID</code> and <code>Secret</code> should also be displayed on screen (should be safely stored on your end)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/artemis_api_python/docs/images/application_created.png" alt="application_created.png"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Press <code>Authorize</code>, to generate an authorization code and store it on your end</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Setup-Environment-variables">Setup Environment variables<a class="anchor-link" href="#Setup-Environment-variables"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You'll then need to set the following environment variables using the previously retrieved information:</p>
+<ul>
+<li><code>ARTEMIS_OAUTH_APP_ID</code> = YOUR_APPLICATION_UUID</li>
+<li><code>ARTEMIS_OAUTH_APP_SECRET</code> = YOUR_APPLICATION_SECRET</li>
+<li><code>ARTEMIS_BASE_URI</code> = <a href="https://portal.artemisag.com">https://portal.artemisag.com</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Use-the-generated-authorization-code-to-retrieve-a-token:">Use the generated authorization code to retrieve a token:<a class="anchor-link" href="#Use-the-generated-authorization-code-to-retrieve-a-token:"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once the authorization code has been generated, for the first authentication, you can pass the authorization code when creating an <a href="/artemis_api_python/core.html#APIClient"><code>APIClient</code></a> instance. This will generate a token that will contain an <code>access_token</code></p>
+
 </div>
 </div>
 </div>
@@ -75,7 +158,7 @@ nb_path: "index.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">auth_code</span><span class="o">=</span><span class="s2">&quot;0LOuiqULGUyEiZ_u7a9D7eUxYakwGHaYOUl3KvUtC14&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">auth_code</span><span class="o">=</span><span class="s2">&quot;SOW6aFsut-bFVNKsBEPA1EDNrLjDnUseCLzAEjjKK6o&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -87,7 +170,29 @@ nb_path: "index.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="By-refreshing-a-token-manually">By refreshing a token manually<a class="anchor-link" href="#By-refreshing-a-token-manually"> </a></h3>
+<p>The generated token should have the following format:</p>
+
+<pre><code>{'access_token': 'YOUR_ACCESS_TOKEN'
+ 'token_type': 'Bearer',
+ 'expires_in': 7200,
+ 'refresh_token': 'YOUR_REFRESH_TOKEN',
+ 'scope': ['default'],
+ 'created_at': 1614610952,
+ 'expires_at': 1614618152.409052}</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Refreshing-a-token-manually">Refreshing a token manually<a class="anchor-link" href="#Refreshing-a-token-manually"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since the <code>access_token</code> will have a limited duration, you'll need to refresh it. This can be done by passing the token when creating an <a href="/artemis_api_python/core.html#APIClient"><code>APIClient</code></a> to refresh it:</p>
+
 </div>
 </div>
 </div>
@@ -108,6 +213,21 @@ nb_path: "index.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The token information should then be updated:</p>
+
+<pre><code>{'access_token': 'YOUR_NEW_ACCESS_TOKEN',
+ 'token_type': 'Bearer',
+ 'expires_in': 7200,
+ 'refresh_token': 'YOUR_NEW_REFRESH_TOKEN',
+ 'scope': ['default'],
+ 'created_at': 1614614804,
+ 'expires_at': 1614622004.975017}</code></pre>
+
+</div>
+</div>
+</div>
 </div>
  
 
