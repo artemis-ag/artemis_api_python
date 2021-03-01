@@ -228,6 +228,18 @@ If you'd like to access your authorization code directly, you can add to the red
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Sensor-Example">Sensor Example<a class="anchor-link" href="#Sensor-Example"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="List-all-sensors">List all sensors<a class="anchor-link" href="#List-all-sensors"> </a></h3>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -295,6 +307,12 @@ If you'd like to access your authorization code directly, you can add to the red
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Create-a-sensor">Create a sensor<a class="anchor-link" href="#Create-a-sensor"> </a></h3>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -302,57 +320,10 @@ If you'd like to access your authorization code directly, you can add to the red
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">sensors</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="mi">1574</span><span class="p">,</span> <span class="s1">&#39;vincent_test_2&#39;</span><span class="p">,</span> <span class="s1">&#39;priva&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">sensors</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="mi">1574</span><span class="p">,</span> <span class="s1">&#39;test_api_sensor&#39;</span><span class="p">,</span> <span class="s1">&#39;priva&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;facility_id&#39;: 1574, &#39;_jsonapi&#39;: {&#39;data&#39;: {&#39;type&#39;: &#39;sensors&#39;, &#39;attributes&#39;: {&#39;name&#39;: &#39;vincent_test_2&#39;, &#39;model&#39;: &#39;priva&#39;}}}}
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">content</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>b&#39;{&#34;data&#34;:{&#34;id&#34;:&#34;5638&#34;,&#34;type&#34;:&#34;sensors&#34;,&#34;attributes&#34;:{&#34;id&#34;:5638,&#34;name&#34;:&#34;vincent_test_2&#34;,&#34;facility_id&#34;:1574,&#34;model&#34;:&#34;priva&#34;,&#34;created_at&#34;:&#34;2021-03-01T20:27:33.274Z&#34;,&#34;visible&#34;:true,&#34;status&#34;:&#34;active&#34;,&#34;device_id&#34;:null,&#34;string&#34;:null,&#34;slug&#34;:&#34;vincent-test-2&#34;},&#34;relationships&#34;:{&#34;metrics&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}},&#34;sensor_data&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}}}},&#34;jsonapi&#34;:{&#34;version&#34;:&#34;1.0&#34;}}&#39;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -398,7 +369,7 @@ If you'd like to access your authorization code directly, you can add to the red
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>b&#39;{&#34;data&#34;:[{&#34;id&#34;:&#34;5638&#34;,&#34;type&#34;:&#34;sensors&#34;,&#34;attributes&#34;:{&#34;id&#34;:5638,&#34;name&#34;:&#34;vincent_test_2&#34;,&#34;facility_id&#34;:1574,&#34;model&#34;:&#34;priva&#34;,&#34;created_at&#34;:&#34;2021-03-01T20:27:33.274Z&#34;,&#34;visible&#34;:true,&#34;status&#34;:&#34;active&#34;,&#34;device_id&#34;:null,&#34;string&#34;:null,&#34;slug&#34;:&#34;vincent-test-2&#34;},&#34;relationships&#34;:{&#34;metrics&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}},&#34;sensor_data&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}}}},{&#34;id&#34;:&#34;5637&#34;,&#34;type&#34;:&#34;sensors&#34;,&#34;attributes&#34;:{&#34;id&#34;:5637,&#34;name&#34;:&#34;vincent_test&#34;,&#34;facility_id&#34;:1574,&#34;model&#34;:&#34;priva&#34;,&#34;created_at&#34;:&#34;2021-03-01T19:44:58.558Z&#34;,&#34;visible&#34;:true,&#34;status&#34;:&#34;active&#34;,&#34;device_id&#34;:null,&#34;string&#34;:null,&#34;slug&#34;:&#34;vincent-test&#34;},&#34;relationships&#34;:{&#34;metrics&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}},&#34;sensor_data&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}}}}],&#34;jsonapi&#34;:{&#34;version&#34;:&#34;1.0&#34;}}&#39;</pre>
+<pre>b&#39;{&#34;data&#34;:[{&#34;id&#34;:&#34;5641&#34;,&#34;type&#34;:&#34;sensors&#34;,&#34;attributes&#34;:{&#34;id&#34;:5641,&#34;name&#34;:&#34;test_api_sensor&#34;,&#34;facility_id&#34;:1574,&#34;model&#34;:&#34;priva&#34;,&#34;created_at&#34;:&#34;2021-03-01T20:51:58.261Z&#34;,&#34;visible&#34;:true,&#34;status&#34;:&#34;active&#34;,&#34;device_id&#34;:null,&#34;string&#34;:null,&#34;slug&#34;:&#34;test-api-sensor&#34;},&#34;relationships&#34;:{&#34;metrics&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}},&#34;sensor_data&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}}}}],&#34;jsonapi&#34;:{&#34;version&#34;:&#34;1.0&#34;}}&#39;</pre>
 </div>
 
 </div>
@@ -409,6 +380,12 @@ If you'd like to access your authorization code directly, you can add to the red
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Retrieve-a-specific-sensor">Retrieve a specific sensor<a class="anchor-link" href="#Retrieve-a-specific-sensor"> </a></h3>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -416,7 +393,7 @@ If you'd like to access your authorization code directly, you can add to the red
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">sensors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">facility_id</span><span class="o">=</span><span class="mi">1574</span><span class="p">,</span> <span class="n">sensor_id</span><span class="o">=</span><span class="mi">5637</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">sensors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">facility_id</span><span class="o">=</span><span class="mi">1574</span><span class="p">,</span> <span class="n">sensor_id</span><span class="o">=</span><span class="mi">5641</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -448,7 +425,7 @@ If you'd like to access your authorization code directly, you can add to the red
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>b&#39;{&#34;data&#34;:{&#34;id&#34;:&#34;5637&#34;,&#34;type&#34;:&#34;sensors&#34;,&#34;attributes&#34;:{&#34;id&#34;:5637,&#34;name&#34;:&#34;vincent_test&#34;,&#34;facility_id&#34;:1574,&#34;model&#34;:&#34;priva&#34;,&#34;created_at&#34;:&#34;2021-03-01T19:44:58.558Z&#34;,&#34;visible&#34;:true,&#34;status&#34;:&#34;active&#34;,&#34;device_id&#34;:null,&#34;string&#34;:null,&#34;slug&#34;:&#34;vincent-test&#34;},&#34;relationships&#34;:{&#34;metrics&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}},&#34;sensor_data&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}}}},&#34;jsonapi&#34;:{&#34;version&#34;:&#34;1.0&#34;}}&#39;</pre>
+<pre>b&#39;{&#34;data&#34;:{&#34;id&#34;:&#34;5641&#34;,&#34;type&#34;:&#34;sensors&#34;,&#34;attributes&#34;:{&#34;id&#34;:5641,&#34;name&#34;:&#34;test_api_sensor&#34;,&#34;facility_id&#34;:1574,&#34;model&#34;:&#34;priva&#34;,&#34;created_at&#34;:&#34;2021-03-01T20:51:58.261Z&#34;,&#34;visible&#34;:true,&#34;status&#34;:&#34;active&#34;,&#34;device_id&#34;:null,&#34;string&#34;:null,&#34;slug&#34;:&#34;test-api-sensor&#34;},&#34;relationships&#34;:{&#34;metrics&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}},&#34;sensor_data&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}}}},&#34;jsonapi&#34;:{&#34;version&#34;:&#34;1.0&#34;}}&#39;</pre>
 </div>
 
 </div>
@@ -459,6 +436,12 @@ If you'd like to access your authorization code directly, you can add to the red
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Update-a-specific-sensor">Update a specific sensor<a class="anchor-link" href="#Update-a-specific-sensor"> </a></h3>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -466,43 +449,10 @@ If you'd like to access your authorization code directly, you can add to the red
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">sensors</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">facility_id</span><span class="o">=</span><span class="mi">1574</span><span class="p">,</span> <span class="n">sensor_id</span><span class="o">=</span><span class="mi">5637</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">sensors</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">1574</span><span class="p">,</span> <span class="mi">5641</span><span class="p">,</span> <span class="s1">&#39;test_api_sensor_changed&#39;</span><span class="p">,</span> <span class="s1">&#39;priva&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">content</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>b&#39;{&#34;data&#34;:{&#34;id&#34;:&#34;5637&#34;,&#34;type&#34;:&#34;sensors&#34;,&#34;attributes&#34;:{&#34;id&#34;:5637,&#34;name&#34;:&#34;vincent_test&#34;,&#34;facility_id&#34;:1574,&#34;model&#34;:&#34;priva&#34;,&#34;created_at&#34;:&#34;2021-03-01T19:44:58.558Z&#34;,&#34;visible&#34;:true,&#34;status&#34;:&#34;removed&#34;,&#34;device_id&#34;:null,&#34;string&#34;:null,&#34;slug&#34;:&#34;vincent-test&#34;},&#34;relationships&#34;:{&#34;metrics&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}},&#34;sensor_data&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}}}},&#34;jsonapi&#34;:{&#34;version&#34;:&#34;1.0&#34;}}&#39;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -548,7 +498,7 @@ If you'd like to access your authorization code directly, you can add to the red
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>b&#39;{&#34;data&#34;:[{&#34;id&#34;:&#34;5638&#34;,&#34;type&#34;:&#34;sensors&#34;,&#34;attributes&#34;:{&#34;id&#34;:5638,&#34;name&#34;:&#34;vincent_test_2&#34;,&#34;facility_id&#34;:1574,&#34;model&#34;:&#34;priva&#34;,&#34;created_at&#34;:&#34;2021-03-01T20:27:33.274Z&#34;,&#34;visible&#34;:true,&#34;status&#34;:&#34;active&#34;,&#34;device_id&#34;:null,&#34;string&#34;:null,&#34;slug&#34;:&#34;vincent-test-2&#34;},&#34;relationships&#34;:{&#34;metrics&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}},&#34;sensor_data&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}}}}],&#34;jsonapi&#34;:{&#34;version&#34;:&#34;1.0&#34;}}&#39;</pre>
+<pre>b&#39;{&#34;data&#34;:[{&#34;id&#34;:&#34;5641&#34;,&#34;type&#34;:&#34;sensors&#34;,&#34;attributes&#34;:{&#34;id&#34;:5641,&#34;name&#34;:&#34;test_api_sensor_changed&#34;,&#34;facility_id&#34;:1574,&#34;model&#34;:&#34;priva&#34;,&#34;created_at&#34;:&#34;2021-03-01T20:51:58.261Z&#34;,&#34;visible&#34;:true,&#34;status&#34;:&#34;active&#34;,&#34;device_id&#34;:null,&#34;string&#34;:null,&#34;slug&#34;:&#34;test-api-sensor&#34;},&#34;relationships&#34;:{&#34;metrics&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}},&#34;sensor_data&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}}}}],&#34;jsonapi&#34;:{&#34;version&#34;:&#34;1.0&#34;}}&#39;</pre>
 </div>
 
 </div>
@@ -559,6 +509,12 @@ If you'd like to access your authorization code directly, you can add to the red
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Delete-a-specific-sensor">Delete a specific sensor<a class="anchor-link" href="#Delete-a-specific-sensor"> </a></h3>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -566,43 +522,10 @@ If you'd like to access your authorization code directly, you can add to the red
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">sensors</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">facility_id</span><span class="o">=</span><span class="mi">1574</span><span class="p">,</span> <span class="n">sensor_id</span><span class="o">=</span><span class="mi">5638</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">sensors</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">facility_id</span><span class="o">=</span><span class="mi">1574</span><span class="p">,</span> <span class="n">sensor_id</span><span class="o">=</span><span class="mi">5641</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">content</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>b&#39;{&#34;data&#34;:{&#34;id&#34;:&#34;5638&#34;,&#34;type&#34;:&#34;sensors&#34;,&#34;attributes&#34;:{&#34;id&#34;:5638,&#34;name&#34;:&#34;vincent_test_2&#34;,&#34;facility_id&#34;:1574,&#34;model&#34;:&#34;priva&#34;,&#34;created_at&#34;:&#34;2021-03-01T20:27:33.274Z&#34;,&#34;visible&#34;:true,&#34;status&#34;:&#34;removed&#34;,&#34;device_id&#34;:null,&#34;string&#34;:null,&#34;slug&#34;:&#34;vincent-test-2&#34;},&#34;relationships&#34;:{&#34;metrics&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}},&#34;sensor_data&#34;:{&#34;meta&#34;:{&#34;included&#34;:false}}}},&#34;jsonapi&#34;:{&#34;version&#34;:&#34;1.0&#34;}}&#39;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 

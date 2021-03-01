@@ -36,15 +36,22 @@ class Sensor:
         body['facility_id'] = facility_id
         body['_jsonapi'] = {}
         body['_jsonapi']['data'] = data
-        print(body)
-#         body = { "facility_id": facility_id,
-#                  "_jsonapi": {
-#                      "data": {
-#                         "type": "sensors",
-#                         "attributes": {
-#                          "name": sensor_name,
-#                          "model": sensor_model}}}}
         return self.client.post(f'/facilities/{facility_id}/sensors', json.dumps(body))
+
+    def put(self, facility_id, sensor_id, sensor_name, sensor_model):
+        "Creates a new sensor for a specific facility"
+        attributes = {}
+        data = {}
+        body = {}
+        attributes['name'] = sensor_name
+        attributes['model'] = sensor_model
+        data['type'] = "sensors"
+        data['attributes'] = attributes
+        body['facility_id'] = facility_id
+        body['id'] = sensor_id
+        body['_jsonapi'] = {}
+        body['_jsonapi']['data'] = data
+        return self.client.put(f'/facilities/{facility_id}/sensors/{sensor_id}', json.dumps(body))
 
     def delete(self, facility_id, sensor_id):
         "Deletes a specific sensor for a specific facility"

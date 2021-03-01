@@ -78,6 +78,10 @@ The token information should then be updated:
  'expires_at': 1614622004.975017}
  ```
 
+## Sensor Example
+
+### List all sensors
+
 ```python
 sensors = Sensor(client_refresh)
 ```
@@ -97,23 +101,11 @@ response.content
 
 
 
-```python
-response = sensors.post(1574, 'vincent_test_2', 'priva')
-```
-
-    {'facility_id': 1574, '_jsonapi': {'data': {'type': 'sensors', 'attributes': {'name': 'vincent_test_2', 'model': 'priva'}}}}
-
+### Create a sensor
 
 ```python
-response.content
+response = sensors.post(1574, 'test_api_sensor', 'priva')
 ```
-
-
-
-
-    b'{"data":{"id":"5638","type":"sensors","attributes":{"id":5638,"name":"vincent_test_2","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:27:33.274Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"vincent-test-2"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}},"jsonapi":{"version":"1.0"}}'
-
-
 
 ```python
 response = sensors.get_all(1574)
@@ -126,12 +118,14 @@ response.content
 
 
 
-    b'{"data":[{"id":"5638","type":"sensors","attributes":{"id":5638,"name":"vincent_test_2","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:27:33.274Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"vincent-test-2"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}},{"id":"5637","type":"sensors","attributes":{"id":5637,"name":"vincent_test","facility_id":1574,"model":"priva","created_at":"2021-03-01T19:44:58.558Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"vincent-test"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}}],"jsonapi":{"version":"1.0"}}'
+    b'{"data":[{"id":"5641","type":"sensors","attributes":{"id":5641,"name":"test_api_sensor","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:51:58.261Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"test-api-sensor"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}}],"jsonapi":{"version":"1.0"}}'
 
 
+
+### Retrieve a specific sensor
 
 ```python
-response = sensors.get(facility_id=1574, sensor_id=5637)
+response = sensors.get(facility_id=1574, sensor_id=5641)
 ```
 
 ```python
@@ -141,24 +135,15 @@ response.content
 
 
 
-    b'{"data":{"id":"5637","type":"sensors","attributes":{"id":5637,"name":"vincent_test","facility_id":1574,"model":"priva","created_at":"2021-03-01T19:44:58.558Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"vincent-test"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}},"jsonapi":{"version":"1.0"}}'
+    b'{"data":{"id":"5641","type":"sensors","attributes":{"id":5641,"name":"test_api_sensor","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:51:58.261Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"test-api-sensor"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}},"jsonapi":{"version":"1.0"}}'
 
 
 
-```python
-response = sensors.delete(facility_id=1574, sensor_id=5637)
-```
+### Update a specific sensor
 
 ```python
-response.content
+response = sensors.put(1574, 5641, 'test_api_sensor_changed', 'priva')
 ```
-
-
-
-
-    b'{"data":{"id":"5637","type":"sensors","attributes":{"id":5637,"name":"vincent_test","facility_id":1574,"model":"priva","created_at":"2021-03-01T19:44:58.558Z","visible":true,"status":"removed","device_id":null,"string":null,"slug":"vincent-test"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}},"jsonapi":{"version":"1.0"}}'
-
-
 
 ```python
 response = sensors.get_all(1574)
@@ -171,24 +156,15 @@ response.content
 
 
 
-    b'{"data":[{"id":"5638","type":"sensors","attributes":{"id":5638,"name":"vincent_test_2","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:27:33.274Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"vincent-test-2"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}}],"jsonapi":{"version":"1.0"}}'
+    b'{"data":[{"id":"5641","type":"sensors","attributes":{"id":5641,"name":"test_api_sensor_changed","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:51:58.261Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"test-api-sensor"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}}],"jsonapi":{"version":"1.0"}}'
 
 
 
-```python
-response = sensors.delete(facility_id=1574, sensor_id=5638)
-```
+### Delete a specific sensor
 
 ```python
-response.content
+response = sensors.delete(facility_id=1574, sensor_id=5641)
 ```
-
-
-
-
-    b'{"data":{"id":"5638","type":"sensors","attributes":{"id":5638,"name":"vincent_test_2","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:27:33.274Z","visible":true,"status":"removed","device_id":null,"string":null,"slug":"vincent-test-2"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}},"jsonapi":{"version":"1.0"}}'
-
-
 
 ```python
 response = sensors.get_all(1574)
