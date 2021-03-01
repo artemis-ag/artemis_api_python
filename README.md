@@ -45,7 +45,7 @@ You'll then need to set the following environment variables using the previously
 Once the authorization code has been generated, for the first authentication, you can pass the authorization code when creating an `APIClient` instance. This will generate a token that will contain an `access_token`
 
 ```python
-client = APIClient(auth_code="SOW6aFsut-bFVNKsBEPA1EDNrLjDnUseCLzAEjjKK6o")
+client = APIClient(auth_code="r9bmxadR-Oc-VZ7OG6Frs46-3h40WI0fI5_dtDfGsyA")
 ```
 
 The generated token should have the following format:
@@ -77,3 +77,22 @@ The token information should then be updated:
  'created_at': 1614614804,
  'expires_at': 1614622004.975017}
  ```
+
+```python
+sensors = Sensor(client_refresh)
+```
+
+```python
+response = sensors.get_all(1574)
+```
+
+```python
+response.content
+```
+
+
+
+
+    b'{"data":[],"jsonapi":{"version":"1.0"}}'
+
+

@@ -146,7 +146,7 @@ If you'd like to access your authorization code directly, you can add to the red
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Once the authorization code has been generated, for the first authentication, you can pass the authorization code when creating an <a href="/artemis_api_python/core.html#APIClient"><code>APIClient</code></a> instance. This will generate a token that will contain an <code>access_token</code></p>
+<p>Once the authorization code has been generated, for the first authentication, you can pass the authorization code when creating an <a href="/artemis_api_python/client.html#APIClient"><code>APIClient</code></a> instance. This will generate a token that will contain an <code>access_token</code></p>
 
 </div>
 </div>
@@ -158,7 +158,7 @@ If you'd like to access your authorization code directly, you can add to the red
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">auth_code</span><span class="o">=</span><span class="s2">&quot;SOW6aFsut-bFVNKsBEPA1EDNrLjDnUseCLzAEjjKK6o&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">APIClient</span><span class="p">(</span><span class="n">auth_code</span><span class="o">=</span><span class="s2">&quot;r9bmxadR-Oc-VZ7OG6Frs46-3h40WI0fI5_dtDfGsyA&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -191,7 +191,7 @@ If you'd like to access your authorization code directly, you can add to the red
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Since the <code>access_token</code> will have a limited duration, you'll need to refresh it. This can be done by passing the token when creating an <a href="/artemis_api_python/core.html#APIClient"><code>APIClient</code></a> to refresh it:</p>
+<p>Since the <code>access_token</code> will have a limited duration, you'll need to refresh it. This can be done by passing the token when creating an <a href="/artemis_api_python/client.html#APIClient"><code>APIClient</code></a> to refresh it:</p>
 
 </div>
 </div>
@@ -228,6 +228,73 @@ If you'd like to access your authorization code directly, you can add to the red
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sensors</span> <span class="o">=</span> <span class="n">Sensor</span><span class="p">(</span><span class="n">client_refresh</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">sensors</span><span class="o">.</span><span class="n">get_all</span><span class="p">(</span><span class="mi">1574</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>b&#39;{&#34;data&#34;:[],&#34;jsonapi&#34;:{&#34;version&#34;:&#34;1.0&#34;}}&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 </div>
  
 

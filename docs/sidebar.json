@@ -1,6 +1,7 @@
 {
   "artemis_api_python": {
     "Overview": "/",
-    "API Client": "core.html"
+    "API Client": "client.html",
+    "Sensor": "sensor.html"
   }
 }

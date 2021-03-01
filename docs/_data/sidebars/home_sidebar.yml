@@ -11,7 +11,10 @@ entries:
       url: /
     - output: web,pdf
       title: API Client
-      url: core.html
+      url: client.html
+    - output: web,pdf
+      title: Sensor
+      url: sensor.html
     output: web
     title: artemis_api_python
   output: web
