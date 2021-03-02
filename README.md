@@ -10,7 +10,7 @@
 
 You'll need to use OAuth 2.0 and the [Authorization Code Flow](https://auth0.com/docs/flows/authorization-code-flow) to authenticate and interact with the Artemis Ag API
 
-Additional details regarding the Artemis API is also available on the [Artemis developer website](https://developer.artemisag.com/)
+Additional details regarding the Artemis API is also available on the [Artemis developer website](https://developer.artemisag.com/) and the [API's documentation website](https://portal.artemisag.com/api/docs)
 
 ### Create an app and generate an authorization code
 
@@ -45,7 +45,7 @@ You'll then need to set the following environment variables using the previously
 Once the authorization code has been generated, for the first authentication, you can pass the authorization code when creating an `APIClient` instance. This will generate a token that will contain an `access_token`
 
 ```python
-client = APIClient(auth_code="2U9Zo6ifXItIgGrjHB7O45Fjgg-GGBzxwtnf4-MP43E")
+client = APIClient(auth_code="YOUR_AUTHORIZATION_CODE")
 ```
 
 The generated token should have the following format:
@@ -78,105 +78,33 @@ The token information should then be updated:
  'expires_at': 1614622004.975017}
  ```
 
-## Sensor Example
-
-### List all sensors
+### Retrieving Data Example
 
 ```python
-sensors = Sensor(client_refresh)
+sensor = Sensor(client_refresh)
 ```
 
 ```python
-response = sensors.get_all(1574)
-```
-
-```python
-response.content
+sensors = sensor.find_all(1574)
+sensors
 ```
 
 
 
 
-    b'{"data":[{"id":"5637","type":"sensors","attributes":{"id":5637,"name":"vincent_test","facility_id":1574,"model":"priva","created_at":"2021-03-01T19:44:58.558Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"vincent-test"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}}],"jsonapi":{"version":"1.0"}}'
-
-
-
-### Create a sensor
-
-```python
-response = sensors.post(1574, 'test_api_sensor', 'priva')
-```
-
-```python
-response = sensors.get_all(1574)
-```
-
-```python
-response.content
-```
-
-
-
-
-    b'{"data":[{"id":"5641","type":"sensors","attributes":{"id":5641,"name":"test_api_sensor","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:51:58.261Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"test-api-sensor"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}}],"jsonapi":{"version":"1.0"}}'
-
-
-
-### Retrieve a specific sensor
-
-```python
-response = sensors.get(facility_id=1574, sensor_id=5641)
-```
-
-```python
-response.content
-```
-
-
-
-
-    b'{"data":{"id":"5641","type":"sensors","attributes":{"id":5641,"name":"test_api_sensor","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:51:58.261Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"test-api-sensor"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}},"jsonapi":{"version":"1.0"}}'
-
-
-
-### Update a specific sensor
-
-```python
-response = sensors.put(1574, 5641, 'test_api_sensor_changed', 'priva')
-```
-
-```python
-response = sensors.get_all(1574)
-```
-
-```python
-response.content
-```
-
-
-
-
-    b'{"data":[{"id":"5641","type":"sensors","attributes":{"id":5641,"name":"test_api_sensor_changed","facility_id":1574,"model":"priva","created_at":"2021-03-01T20:51:58.261Z","visible":true,"status":"active","device_id":null,"string":null,"slug":"test-api-sensor"},"relationships":{"metrics":{"meta":{"included":false}},"sensor_data":{"meta":{"included":false}}}}],"jsonapi":{"version":"1.0"}}'
-
-
-
-### Delete a specific sensor
-
-```python
-response = sensors.delete(facility_id=1574, sensor_id=5641)
-```
-
-```python
-response = sensors.get_all(1574)
-```
-
-```python
-response.content
-```
-
-
-
-
-    b'{"data":[],"jsonapi":{"version":"1.0"}}'
+    [{'id': '5642',
+      'type': 'sensors',
+      'attributes': {'id': 5642,
+       'name': 'Priva Root Optimizer',
+       'facility_id': 1574,
+       'model': 'priva',
+       'created_at': '2021-03-02T18:24:32.555Z',
+       'visible': True,
+       'status': 'active',
+       'device_id': None,
+       'string': None,
+       'slug': 'priva-root-optimizer'},
+      'relationships': {'metrics': {'meta': {'included': False}},
+       'sensor_data': {'meta': {'included': False}}}}]
 
 

@@ -3,10 +3,12 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"APIClient": "00_client.ipynb",
-         "Sensor": "01_sensor.ipynb"}
+         "Sensor": "01_sensor.ipynb",
+         "Metric": "02_metric.ipynb"}
 
 modules = ["client.py",
-           "sensor.py"]
+           "sensor.py",
+           "metric.py"]
 
 doc_url = "https://Vincent.github.io/artemis_api_python/"
 

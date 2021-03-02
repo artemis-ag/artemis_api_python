@@ -2,6 +2,7 @@
   "artemis_api_python": {
     "Overview": "/",
     "API Client": "client.html",
-    "Sensor": "sensor.html"
+    "Sensor": "sensor.html",
+    "Metric": "metric.html"
   }
 }

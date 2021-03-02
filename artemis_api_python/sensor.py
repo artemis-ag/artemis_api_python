@@ -3,56 +3,51 @@
 __all__ = ['Sensor']
 
 # Cell
-import os
-from requests_oauthlib import OAuth2Session
-from dotenv import load_dotenv
 import json
-
-# Cell
-load_dotenv(dotenv_path='/Users/vincent/Documents/envvars/cred.env')
 
 # Cell
 class Sensor:
     "`Artemis API` Sensor entity object"
-    def __init__(self, client): self.client = client
+    def __init__(self, client):
+        self.client = client
+        self.response = None
 
-    def get_all(self, facility_id):
+    def find_all(self, facility_id):
         "Retrieves all sensors for a specific facility"
-        return self.client.get(f'/facilities/{facility_id}/sensors')
+        self.response = self.client.get(f'/facilities/{facility_id}/sensors')
+        return self.response.json().get('data')
 
-    def get(self, facility_id, sensor_id):
+    def find(self, facility_id, sensor_id):
         "Retrieves a specific sensor for a specific facility"
-        return self.client.get(f'/facilities/{facility_id}/sensors/{sensor_id}')
+        self.response = self.client.get(f'/facilities/{facility_id}/sensors/{sensor_id}')
+        return self.response.json().get('data')
 
-    def post(self, facility_id, sensor_name, sensor_model):
+    def create(self, facility_id, attributes):
         "Creates a new sensor for a specific facility"
-        attributes = {}
         data = {}
         body = {}
-        attributes['name'] = sensor_name
-        attributes['model'] = sensor_model
         data['type'] = "sensors"
         data['attributes'] = attributes
         body['facility_id'] = facility_id
         body['_jsonapi'] = {}
         body['_jsonapi']['data'] = data
-        return self.client.post(f'/facilities/{facility_id}/sensors', json.dumps(body))
+        self.response = self.client.post(f'/facilities/{facility_id}/sensors', json.dumps(body))
+        return self.response.json().get('data')
 
-    def put(self, facility_id, sensor_id, sensor_name, sensor_model):
-        "Creates a new sensor for a specific facility"
-        attributes = {}
+    def update(self, facility_id, sensor_id, attributes):
+        "Updates an existing sensor for a specific facility"
         data = {}
         body = {}
-        attributes['name'] = sensor_name
-        attributes['model'] = sensor_model
         data['type'] = "sensors"
         data['attributes'] = attributes
         body['facility_id'] = facility_id
         body['id'] = sensor_id
         body['_jsonapi'] = {}
         body['_jsonapi']['data'] = data
-        return self.client.put(f'/facilities/{facility_id}/sensors/{sensor_id}', json.dumps(body))
+        self.response = self.client.put(f'/facilities/{facility_id}/sensors/{sensor_id}', json.dumps(body))
+        return self.response.json().get('data')
 
-    def delete(self, facility_id, sensor_id):
+    def remove(self, facility_id, sensor_id):
         "Deletes a specific sensor for a specific facility"
-        return self.client.delete(f'/facilities/{facility_id}/sensors/{sensor_id}')
+        self.response = self.client.delete(f'/facilities/{facility_id}/sensors/{sensor_id}')
+        return self.response.json().get('data')
