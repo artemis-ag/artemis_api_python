@@ -67,7 +67,3 @@ class APIClient:
         "Performs a DELETE request for the url"
         headers = {"Content-Type": "application/json"}
         return self.oauth_client.delete(self.set_url(url), headers=headers)
-
-    def status_handler(self, response):
-        "Handles API responses depending on status code"
-        return None

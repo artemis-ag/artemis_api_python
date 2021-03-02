@@ -15,11 +15,21 @@ class Sensor:
     def find_all(self, facility_id):
         "Retrieves all sensors for a specific facility"
         self.response = self.client.get(f'/facilities/{facility_id}/sensors')
+        try:
+            self.response.json().get('data')
+        except:
+            print(f"Request Failed - {self.response.status_code}: {self.response.reason}")
+            return None
         return self.response.json().get('data')
 
     def find(self, facility_id, sensor_id):
         "Retrieves a specific sensor for a specific facility"
         self.response = self.client.get(f'/facilities/{facility_id}/sensors/{sensor_id}')
+        try:
+            self.response.json().get('data')
+        except:
+            print(f"Request Failed - {self.response.status_code}: {self.response.reason}")
+            return None
         return self.response.json().get('data')
 
     def create(self, facility_id, attributes):
@@ -32,6 +42,11 @@ class Sensor:
         body['_jsonapi'] = {}
         body['_jsonapi']['data'] = data
         self.response = self.client.post(f'/facilities/{facility_id}/sensors', json.dumps(body))
+        try:
+            self.response.json().get('data')
+        except:
+            print(f"Request Failed - {self.response.status_code}: {self.response.reason}")
+            return None
         return self.response.json().get('data')
 
     def update(self, facility_id, sensor_id, attributes):
@@ -45,9 +60,19 @@ class Sensor:
         body['_jsonapi'] = {}
         body['_jsonapi']['data'] = data
         self.response = self.client.put(f'/facilities/{facility_id}/sensors/{sensor_id}', json.dumps(body))
+        try:
+            self.response.json().get('data')
+        except:
+            print(f"Request Failed - {self.response.status_code}: {self.response.reason}")
+            return None
         return self.response.json().get('data')
 
     def remove(self, facility_id, sensor_id):
         "Deletes a specific sensor for a specific facility"
         self.response = self.client.delete(f'/facilities/{facility_id}/sensors/{sensor_id}')
+        try:
+            self.response.json().get('data')
+        except:
+            print(f"Request Failed - {self.response.status_code}: {self.response.reason}")
+            return None
         return self.response.json().get('data')
