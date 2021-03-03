@@ -237,7 +237,7 @@ If you'd like to access your authorization code directly, you can add to the red
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>By default, an <a href="/artemis_api_python/client.html#APIClient"><code>APIClient</code></a> instance will have it's token refreshed on each API request (GET/POST/PUT/DELETE). You can deactivate this behavior by setting the <code>automatic_refresh</code> argument to <code>False</code> when creating an APIClient.</p>
-<p>We also recommend storing/saving the generated token information on our end in database for instance, after each request call if the <code>automatic_refresh</code> option is activated. You can access the client token anytime using the <code>client.token</code> attribute</p>
+<p>We also recommend storing/saving safely the generated token information on your end in a database for instance, after each request call if the <code>automatic_refresh</code> option is activated. You can access the client token anytime using the <code>client.token</code> attribute</p>
 
 </div>
 </div>
