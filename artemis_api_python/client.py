@@ -5,10 +5,6 @@ __all__ = ['APIClient']
 # Cell
 import os
 from requests_oauthlib import OAuth2Session
-from dotenv import load_dotenv
-
-# Cell
-load_dotenv(dotenv_path='/Users/vincent/Documents/envvars/cred.env')
 
 # Cell
 class APIClient:
