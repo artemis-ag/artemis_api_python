@@ -78,6 +78,12 @@ The token information should then be updated:
  'expires_at': 1614622004.975017}
  ```
 
+### Automatic token refresh
+
+By default, an `APIClient` instance will have it's token refreshed on each API request (GET/POST/PUT/DELETE). You can deactivate this behavior by setting the `automatic_refresh` argument to `False` when creating an APIClient.
+
+We also recommend storing/saving the generated token information on our end in database for instance, after each request call if the `automatic_refresh` option is activated. You can access the client token anytime using the `client.token` attribute
+
 ### Retrieving Data Example
 
 ```python
