@@ -23,7 +23,6 @@ class APIClient:
         self.refresh_url = self.token_url
         self.url_prefix = '/api/v3'
         self.automatic_refresh = automatic_refresh
-
         if auth_code is not None:
             self.redirect_uri = 'urn:ietf:wg:oauth:2.0:oob' if redirect_uri is None else redirect_uri
             self.oauth_client = OAuth2Session(self.app_id, redirect_uri=self.redirect_uri)
@@ -66,13 +65,16 @@ class APIClient:
             self.update_client_information()
         return self.oauth_client.put(self.set_url(url), data=data, headers=headers)
 
-    def delete(self, url):
+    def delete(self, url, data=None):
         "Performs a DELETE request for the url"
         headers = {"Content-Type": "application/json"}
         if self.automatic_refresh:
             self.token = self.update_token()
             self.update_client_information()
-        return self.oauth_client.delete(self.set_url(url), headers=headers)
+        if data is None:
+            return self.oauth_client.delete(self.set_url(url), headers=headers)
+        else:
+            return self.oauth_client.delete(self.set_url(url), data=data, headers=headers)
 
     def update_token(self):
         "Refreshes the client's API token"
@@ -85,3 +87,17 @@ class APIClient:
         self.refresh_token = self.token.get('refresh_token')
         self.expires_at = self.token.get('expires_at')
         return None
+
+    def response_handler(self, response, body=None):
+        "Handles response depending on status code"
+        if response.status_code == 200:
+            return response.json().get('data')
+        elif response.status_code == 204:
+            return body
+        else:
+            try:
+                response.json()['data']
+            except:
+                print(f"Request Failed - {response.status_code}: {response.reason}")
+                return None
+            return response.json().get('data')

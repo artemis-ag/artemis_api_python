@@ -18,6 +18,9 @@ entries:
     - output: web,pdf
       title: Metric
       url: metric.html
+    - output: web,pdf
+      title: Sensor Data
+      url: sensor_data.html
     output: web
     title: artemis_api_python
   output: web

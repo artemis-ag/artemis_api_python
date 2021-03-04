@@ -15,22 +15,12 @@ class Metric:
     def find_all(self, facility_id):
         "Retrieves all metrics for a specific facility"
         self.response = self.client.get(f'/facilities/{facility_id}/metrics')
-        try:
-            self.response.json().get('data')
-        except:
-            print(f"Request Failed - {self.response.status_code}: {self.response.reason}")
-            return None
-        return self.response.json().get('data')
+        return self.client.response_handler(self.response)
 
     def find(self, facility_id, metric_id):
         "Retrieves a specific metric for a specific facility"
         self.response = self.client.get(f'/facilities/{facility_id}/metrics/{metric_id}')
-        try:
-            self.response.json().get('data')
-        except:
-            print(f"Request Failed - {self.response.status_code}: {self.response.reason}")
-            return None
-        return self.response.json().get('data')
+        return self.client.response_handler(self.response)
 
     def create(self, facility_id, attributes):
         "Creates a new metric for a specific facility"
@@ -42,9 +32,4 @@ class Metric:
         body['_jsonapi'] = {}
         body['_jsonapi']['data'] = data
         self.response = self.client.post(f'/facilities/{facility_id}/metrics', json.dumps(body))
-        try:
-            self.response.json().get('data')
-        except:
-            print(f"Request Failed - {self.response.status_code}: {self.response.reason}")
-            return None
-        return self.response.json().get('data')
+        return self.client.response_handler(self.response, body)
