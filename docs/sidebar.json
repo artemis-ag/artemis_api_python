@@ -4,6 +4,7 @@
     "API Client": "client.html",
     "Sensor": "sensor.html",
     "Metric": "metric.html",
-    "Sensor Data": "sensor_data.html"
+    "Sensor Data": "sensor_data.html",
+    "Data Requests": "data_requests.html"
   }
 }

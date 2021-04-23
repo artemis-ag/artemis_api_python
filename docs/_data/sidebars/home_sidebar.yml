@@ -21,6 +21,9 @@ entries:
     - output: web,pdf
       title: Sensor Data
       url: sensor_data.html
+    - output: web,pdf
+      title: Data Requests
+      url: data_requests.html
     output: web
     title: artemis_api_python
   output: web
