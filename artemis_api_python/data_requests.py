@@ -12,7 +12,12 @@ class DataRequests:
         self.client = client
         self.response = None
 
-    def create(self, facility_id, sensor_id, metric_id, attributes):
+    def find(self, facility_id, data_request_id):
+        "Retrieves a specific data request"
+        self.response = self.client.get(f'/facilities/{facility_id}/data_requests/{data_request_id}')
+        return self.client.response_handler(self.response)
+
+    def create(self, facility_id, attributes):
         "Creates a data request for a specific facility"
         data = {}
         body = {}
@@ -22,4 +27,17 @@ class DataRequests:
         body['_jsonapi'] = {}
         body['_jsonapi']['data'] = data
         self.response = self.client.post(f'/facilities/{facility_id}/data_requests', json.dumps(body))
+        return self.client.response_handler(self.response, body)
+
+    def update(self, data_request_id, facility_id, attributes):
+        "Updates a specific data request"
+        data = {}
+        body = {}
+        data['type'] = "data_requests"
+        data['attributes'] = attributes
+        body['facility_id'] = facility_id
+        body['id'] = data_request_id
+        body['_jsonapi'] = {}
+        body['_jsonapi']['data'] = data
+        self.response = self.client.put(f'/facilities/{facility_id}/data_requests/{data_request_id}', json.dumps(body))
         return self.client.response_handler(self.response, body)

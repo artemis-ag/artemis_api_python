@@ -33,7 +33,10 @@ class APIClient:
                 client_secret=self.app_secret)
         else:
             self.oauth_client = OAuth2Session(self.app_id, token=token)
-            self.token = self.update_token()
+            if self.automatic_refresh:
+                self.token = self.update_token()
+            else:
+                self.token = token
 
         self.update_client_information()
 
