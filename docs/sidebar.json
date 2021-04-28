@@ -5,6 +5,9 @@
     "Sensor": "sensor.html",
     "Metric": "metric.html",
     "Sensor Data": "sensor_data.html",
-    "Data Requests": "data_requests.html"
+    "Data Requests": "data_requests.html",
+    "Metrics Data": "metrics_data.html",
+    "Tanks": "tanks.html",
+    "Tank Readings": "tank_readings.html"
   }
 }

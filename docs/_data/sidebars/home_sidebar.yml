@@ -24,6 +24,15 @@ entries:
     - output: web,pdf
       title: Data Requests
       url: data_requests.html
+    - output: web,pdf
+      title: Metrics Data
+      url: metrics_data.html
+    - output: web,pdf
+      title: Tanks
+      url: tanks.html
+    - output: web,pdf
+      title: Tank Readings
+      url: tank_readings.html
     output: web
     title: artemis_api_python
   output: web
