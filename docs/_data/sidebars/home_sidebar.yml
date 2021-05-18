@@ -33,6 +33,12 @@ entries:
     - output: web,pdf
       title: Tank Readings
       url: tank_readings.html
+    - output: web,pdf
+      title: Completions
+      url: completions.html
+    - output: web,pdf
+      title: Subscriptions
+      url: subscriptions.html
     output: web
     title: artemis_api_python
   output: web

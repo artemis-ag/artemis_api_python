@@ -9,7 +9,9 @@ index = {"APIClient": "00_client.ipynb",
          "DataRequests": "04_data_requests.ipynb",
          "MetricsData": "05_metrics_data.ipynb",
          "Tanks": "06_tanks.ipynb",
-         "TankReadings": "07_tank_readings.ipynb"}
+         "TankReadings": "07_tank_readings.ipynb",
+         "Completions": "08_completions.ipynb",
+         "Subscriptions": "09_subscriptions.ipynb"}
 
 modules = ["client.py",
            "sensor.py",
@@ -18,7 +20,9 @@ modules = ["client.py",
            "data_requests.py",
            "metrics_data.py",
            "tanks.py",
-           "tank_readings.py"]
+           "tank_readings.py",
+           "completions.py",
+           "subscriptions.py"]
 
 doc_url = "https://Vincent.github.io/artemis_api_python/"
 

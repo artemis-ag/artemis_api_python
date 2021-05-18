@@ -8,6 +8,8 @@
     "Data Requests": "data_requests.html",
     "Metrics Data": "metrics_data.html",
     "Tanks": "tanks.html",
-    "Tank Readings": "tank_readings.html"
+    "Tank Readings": "tank_readings.html",
+    "Completions": "completions.html",
+    "Subscriptions": "subscriptions.html"
   }
 }

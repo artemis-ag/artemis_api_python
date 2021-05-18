@@ -104,3 +104,12 @@ class APIClient:
                 print(f"Request Failed - {response.status_code}: {response.reason}")
                 return None
             return response.json().get('data')
+
+    def format_filters(selt, filters):
+        filter_string = ''
+        for filter_dict in filters:
+            for key, value in filter_dict.items():
+                filter_string+= f'filter[{key}][]={value}&'
+        if len(filter_dict)>0:
+            filter_string = filter_string[:-1]
+        return filter_string
