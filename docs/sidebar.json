@@ -1,0 +1,15 @@
+{
+  "artemis_api_python": {
+    "Overview": "/",
+    "API Client": "client.html",
+    "Sensor": "sensor.html",
+    "Metric": "metric.html",
+    "Sensor Data": "sensor_data.html",
+    "Data Requests": "data_requests.html",
+    "Metrics Data": "metrics_data.html",
+    "Tanks": "tanks.html",
+    "Tank Readings": "tank_readings.html",
+    "Completions": "completions.html",
+    "Subscriptions": "subscriptions.html"
+  }
+}
