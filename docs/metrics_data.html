@@ -79,9 +79,9 @@ nb_path: "05_metrics_data.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="MetricsData.find" class="doc_header"><code>MetricsData.find</code><a href="https://github.com/Vincent/artemis_api_python/tree/main/artemis_api_python/metrics_data.py#L44" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>MetricsData.find</code>(<strong><code>facility_id</code></strong>, <strong><code>metric_id</code></strong>)</p>
+<h4 id="MetricsData.find" class="doc_header"><code>MetricsData.find</code><a href="https://github.com/Vincent/artemis_api_python/tree/main/artemis_api_python/metrics_data.py#L15" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>MetricsData.find</code>(<strong><code>facility_id</code></strong>, <strong><code>metric_id</code></strong>)</p>
 </blockquote>
-<p>Retrieves a list of metrics data for a specific metric</p>
+<p>Retrieves a list of metrics data points for a specific metric</p>
 
 </div>
 
@@ -139,7 +139,12 @@ nb_path: "05_metrics_data.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[{&#39;id&#39;: &#39;2&#39;,
+<pre>[{&#39;id&#39;: &#39;1&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 1, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.6},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/1&#39;}},
+ {&#39;id&#39;: &#39;2&#39;,
   &#39;type&#39;: &#39;data&#39;,
   &#39;attributes&#39;: {&#39;id&#39;: 2, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.6},
   &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
@@ -284,11 +289,16 @@ nb_path: "05_metrics_data.ipynb"
   &#39;attributes&#39;: {&#39;id&#39;: 30, &#39;string_value&#39;: None, &#39;float_value&#39;: 5.2},
   &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
   &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/30&#39;}},
- {&#39;id&#39;: &#39;1&#39;,
+ {&#39;id&#39;: &#39;457&#39;,
   &#39;type&#39;: &#39;data&#39;,
-  &#39;attributes&#39;: {&#39;id&#39;: 1, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.6},
+  &#39;attributes&#39;: {&#39;id&#39;: 457, &#39;string_value&#39;: None, &#39;float_value&#39;: 20.7},
   &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
-  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/1&#39;}}]</pre>
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/457&#39;}},
+ {&#39;id&#39;: &#39;458&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 458, &#39;string_value&#39;: None, &#39;float_value&#39;: 21.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/458&#39;}}]</pre>
 </div>
 
 </div>
@@ -310,9 +320,9 @@ nb_path: "05_metrics_data.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="MetricsData.create" class="doc_header"><code>MetricsData.create</code><a href="https://github.com/Vincent/artemis_api_python/tree/main/artemis_api_python/metrics_data.py#L49" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>MetricsData.create</code>(<strong><code>facility_id</code></strong>, <strong><code>metric_id</code></strong>, <strong><code>attributes</code></strong>)</p>
+<h4 id="MetricsData.create" class="doc_header"><code>MetricsData.create</code><a href="https://github.com/Vincent/artemis_api_python/tree/main/artemis_api_python/metrics_data.py#L20" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>MetricsData.create</code>(<strong><code>facility_id</code></strong>, <strong><code>metric_id</code></strong>, <strong><code>attributes</code></strong>)</p>
 </blockquote>
-<p>Creates a new metric data for a specific metric</p>
+<p>Creates a new metric data point for a specific metric</p>
 
 </div>
 
@@ -339,7 +349,7 @@ nb_path: "05_metrics_data.ipynb"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;float_value&quot;</span><span class="p">:</span> <span class="mf">20.7</span><span class="p">,</span> <span class="s2">&quot;recorded_at&quot;</span><span class="p">:</span>  <span class="s2">&quot;2021-02-23T12:16:00+00:00&quot;</span><span class="p">}</span>
+    <span class="s2">&quot;float_value&quot;</span><span class="p">:</span> <span class="mf">21.7</span><span class="p">,</span> <span class="s2">&quot;recorded_at&quot;</span><span class="p">:</span>  <span class="s2">&quot;2021-02-23T11:16:00+00:00&quot;</span><span class="p">}</span>
 <span class="n">created_metric_data</span> <span class="o">=</span> <span class="n">metric_data</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">facility_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">metric_id</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="n">attributes</span><span class="p">)</span>
 <span class="n">created_metric_data</span>
 </pre></div>
@@ -356,11 +366,502 @@ nb_path: "05_metrics_data.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;id&#39;: &#39;457&#39;,
+<pre>{&#39;id&#39;: &#39;&#39;,
  &#39;type&#39;: &#39;data&#39;,
- &#39;attributes&#39;: {&#39;id&#39;: 457, &#39;string_value&#39;: None, &#39;float_value&#39;: 20.7},
+ &#39;attributes&#39;: {&#39;id&#39;: None, &#39;string_value&#39;: None, &#39;float_value&#39;: 30.4},
  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
- &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/457&#39;}}</pre>
+ &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/&#39;}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="MetricsData.remove" class="doc_header"><code>MetricsData.remove</code><a href="https://github.com/Vincent/artemis_api_python/tree/main/artemis_api_python/metrics_data.py#L33" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>MetricsData.remove</code>(<strong><code>facility_id</code></strong>, <strong><code>metric_id</code></strong>, <strong><code>dot_id</code></strong>)</p>
+</blockquote>
+<p>Deletes a specific metric data point for a specific metric and facility</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">metric_data</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">458</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;id&#39;: &#39;458&#39;,
+ &#39;type&#39;: &#39;data&#39;,
+ &#39;attributes&#39;: {&#39;id&#39;: 458, &#39;string_value&#39;: None, &#39;float_value&#39;: 21.7},
+ &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+ &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/458&#39;}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">metric_data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">facility_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">metric_id</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[{&#39;id&#39;: &#39;1&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 1, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.6},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/1&#39;}},
+ {&#39;id&#39;: &#39;2&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 2, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.6},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/2&#39;}},
+ {&#39;id&#39;: &#39;3&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 3, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.5},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/3&#39;}},
+ {&#39;id&#39;: &#39;4&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 4, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.2},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/4&#39;}},
+ {&#39;id&#39;: &#39;5&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 5, &#39;string_value&#39;: None, &#39;float_value&#39;: 5.0},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/5&#39;}},
+ {&#39;id&#39;: &#39;6&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 6, &#39;string_value&#39;: None, &#39;float_value&#39;: 5.3},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/6&#39;}},
+ {&#39;id&#39;: &#39;7&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 7, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.5},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/7&#39;}},
+ {&#39;id&#39;: &#39;8&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 8, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.5},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/8&#39;}},
+ {&#39;id&#39;: &#39;9&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 9, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/9&#39;}},
+ {&#39;id&#39;: &#39;10&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 10, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.9},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/10&#39;}},
+ {&#39;id&#39;: &#39;11&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 11, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/11&#39;}},
+ {&#39;id&#39;: &#39;12&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 12, &#39;string_value&#39;: None, &#39;float_value&#39;: 5.3},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/12&#39;}},
+ {&#39;id&#39;: &#39;13&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 13, &#39;string_value&#39;: None, &#39;float_value&#39;: 8.0},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/13&#39;}},
+ {&#39;id&#39;: &#39;14&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 14, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.4},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/14&#39;}},
+ {&#39;id&#39;: &#39;15&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 15, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.1},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/15&#39;}},
+ {&#39;id&#39;: &#39;16&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 16, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.5},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/16&#39;}},
+ {&#39;id&#39;: &#39;17&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 17, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.8},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/17&#39;}},
+ {&#39;id&#39;: &#39;18&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 18, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/18&#39;}},
+ {&#39;id&#39;: &#39;19&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 19, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.1},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/19&#39;}},
+ {&#39;id&#39;: &#39;20&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 20, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.1},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/20&#39;}},
+ {&#39;id&#39;: &#39;21&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 21, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.4},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/21&#39;}},
+ {&#39;id&#39;: &#39;22&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 22, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.8},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/22&#39;}},
+ {&#39;id&#39;: &#39;23&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 23, &#39;string_value&#39;: None, &#39;float_value&#39;: 5.0},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/23&#39;}},
+ {&#39;id&#39;: &#39;24&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 24, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.2},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/24&#39;}},
+ {&#39;id&#39;: &#39;25&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 25, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.0},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/25&#39;}},
+ {&#39;id&#39;: &#39;26&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 26, &#39;string_value&#39;: None, &#39;float_value&#39;: 5.6},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/26&#39;}},
+ {&#39;id&#39;: &#39;27&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 27, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.1},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/27&#39;}},
+ {&#39;id&#39;: &#39;28&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 28, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/28&#39;}},
+ {&#39;id&#39;: &#39;29&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 29, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/29&#39;}},
+ {&#39;id&#39;: &#39;30&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 30, &#39;string_value&#39;: None, &#39;float_value&#39;: 5.2},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/30&#39;}},
+ {&#39;id&#39;: &#39;457&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 457, &#39;string_value&#39;: None, &#39;float_value&#39;: 20.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/457&#39;}},
+ {&#39;id&#39;: &#39;458&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 458, &#39;string_value&#39;: None, &#39;float_value&#39;: 21.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/458&#39;}}]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;float_value&quot;</span><span class="p">:</span> <span class="mf">30.5</span><span class="p">,</span> <span class="s2">&quot;recorded_at&quot;</span><span class="p">:</span>  <span class="s2">&quot;2021-02-23T11:16:00+00:00&quot;</span><span class="p">}</span>
+<span class="n">created_metric_data</span> <span class="o">=</span> <span class="n">metric_data</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">facility_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">metric_id</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="n">attributes</span><span class="p">)</span>
+<span class="n">created_metric_data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;id&#39;: &#39;459&#39;,
+ &#39;type&#39;: &#39;data&#39;,
+ &#39;attributes&#39;: {&#39;id&#39;: 459, &#39;string_value&#39;: None, &#39;float_value&#39;: 30.5},
+ &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+ &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/459&#39;}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">metric_data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">facility_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">metric_id</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[{&#39;id&#39;: &#39;1&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 1, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.6},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/1&#39;}},
+ {&#39;id&#39;: &#39;2&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 2, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.6},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/2&#39;}},
+ {&#39;id&#39;: &#39;3&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 3, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.5},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/3&#39;}},
+ {&#39;id&#39;: &#39;4&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 4, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.2},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/4&#39;}},
+ {&#39;id&#39;: &#39;5&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 5, &#39;string_value&#39;: None, &#39;float_value&#39;: 5.0},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/5&#39;}},
+ {&#39;id&#39;: &#39;6&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 6, &#39;string_value&#39;: None, &#39;float_value&#39;: 5.3},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/6&#39;}},
+ {&#39;id&#39;: &#39;7&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 7, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.5},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/7&#39;}},
+ {&#39;id&#39;: &#39;8&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 8, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.5},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/8&#39;}},
+ {&#39;id&#39;: &#39;9&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 9, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/9&#39;}},
+ {&#39;id&#39;: &#39;10&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 10, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.9},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/10&#39;}},
+ {&#39;id&#39;: &#39;11&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 11, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/11&#39;}},
+ {&#39;id&#39;: &#39;12&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 12, &#39;string_value&#39;: None, &#39;float_value&#39;: 5.3},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/12&#39;}},
+ {&#39;id&#39;: &#39;13&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 13, &#39;string_value&#39;: None, &#39;float_value&#39;: 8.0},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/13&#39;}},
+ {&#39;id&#39;: &#39;14&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 14, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.4},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/14&#39;}},
+ {&#39;id&#39;: &#39;15&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 15, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.1},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/15&#39;}},
+ {&#39;id&#39;: &#39;16&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 16, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.5},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/16&#39;}},
+ {&#39;id&#39;: &#39;17&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 17, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.8},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/17&#39;}},
+ {&#39;id&#39;: &#39;18&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 18, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/18&#39;}},
+ {&#39;id&#39;: &#39;19&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 19, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.1},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/19&#39;}},
+ {&#39;id&#39;: &#39;20&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 20, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.1},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/20&#39;}},
+ {&#39;id&#39;: &#39;21&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 21, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.4},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/21&#39;}},
+ {&#39;id&#39;: &#39;22&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 22, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.8},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/22&#39;}},
+ {&#39;id&#39;: &#39;23&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 23, &#39;string_value&#39;: None, &#39;float_value&#39;: 5.0},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/23&#39;}},
+ {&#39;id&#39;: &#39;24&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 24, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.2},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/24&#39;}},
+ {&#39;id&#39;: &#39;25&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 25, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.0},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/25&#39;}},
+ {&#39;id&#39;: &#39;26&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 26, &#39;string_value&#39;: None, &#39;float_value&#39;: 5.6},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/26&#39;}},
+ {&#39;id&#39;: &#39;27&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 27, &#39;string_value&#39;: None, &#39;float_value&#39;: 7.1},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/27&#39;}},
+ {&#39;id&#39;: &#39;28&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 28, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/28&#39;}},
+ {&#39;id&#39;: &#39;29&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 29, &#39;string_value&#39;: None, &#39;float_value&#39;: 6.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/29&#39;}},
+ {&#39;id&#39;: &#39;30&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 30, &#39;string_value&#39;: None, &#39;float_value&#39;: 5.2},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/30&#39;}},
+ {&#39;id&#39;: &#39;457&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 457, &#39;string_value&#39;: None, &#39;float_value&#39;: 20.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/457&#39;}},
+ {&#39;id&#39;: &#39;458&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 458, &#39;string_value&#39;: None, &#39;float_value&#39;: 21.7},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/458&#39;}},
+ {&#39;id&#39;: &#39;459&#39;,
+  &#39;type&#39;: &#39;data&#39;,
+  &#39;attributes&#39;: {&#39;id&#39;: 459, &#39;string_value&#39;: None, &#39;float_value&#39;: 30.5},
+  &#39;relationships&#39;: {&#39;metric&#39;: {&#39;data&#39;: {&#39;id&#39;: 13, &#39;type&#39;: &#39;metrics&#39;}}},
+  &#39;links&#39;: {&#39;self&#39;: &#39;http://localhost:3000/facilities/1/kpis/13/dot/459&#39;}}]</pre>
 </div>
 
 </div>

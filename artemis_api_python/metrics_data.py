@@ -29,3 +29,8 @@ class MetricsData:
         body['_jsonapi']['data'] = data
         self.response = self.client.post(f'/facilities/{facility_id}/metrics/{metric_id}/data', json.dumps(body))
         return self.client.response_handler(self.response, body)
+
+    def remove(self, facility_id, metric_id, dot_id):
+        "Deletes a specific metric data point for a specific metric and facility"
+        self.response = self.client.delete(f'/facilities/{facility_id}/metrics/{metric_id}/data/{dot_id}')
+        return self.client.response_handler(self.response)
